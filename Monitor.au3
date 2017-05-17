@@ -20,7 +20,13 @@ Func main()
 
 	  If _IsPressed(01) Then ;Left click
 		 $pos = MouseGetPos()
-		 FileWrite("moves.txt", "MouseClick("& '"left", ' & $pos[0] & "," & $pos[1] & ")" & @CRLF);
+		 FileWrite("moves.txt", "MouseClick("& '"left", ' & $pos[0] & "," & $pos[1] & ",4)" & @CRLF);
+		 sleep(200)
+	  EndIf
+
+	  If _IsPressed(02) Then ;Left click
+		 $pos = MouseGetPos()
+		 FileWrite("moves.txt", "MouseClick("& '"right", ' & $pos[0] & "," & $pos[1] & ",4)" & @CRLF);
 		 sleep(200)
 	  EndIf
 

@@ -7,8 +7,10 @@ Func Terminate()
    $fileName = StringReplace(String(_Now()), "/", "_")
    $fileName = StringReplace($fileName, " ", "_")
    $fileName = StringReplace($fileName, ":", ".")
-   $a = FileCopy(@ScriptDir & "\moves.txt", @ScriptDir & "\memoryCard\" & $fileName & ".au3")
+   FileCopy(@ScriptDir & "\moves.txt", @ScriptDir & "\memoryCard\generatedCode\" & $fileName & ".au3")
+   FileCopy(@ScriptDir & "\log.txt", @ScriptDir & "\memoryCard\logs\" & $fileName & ".txt")
    FileDelete("moves.txt")
+   FileDelete("log.txt")
    Exit 1
 EndFunc
 FileWrite("moves.txt", "#include <Misc.au3>" & @CRLF & "#include <Date.au3>" & @CRLF & 'HotKeySet("{ESC}", "Terminate")' & @CRLF & "Func Terminate()" & @CRLF & "Exit 1" & @CRLF & "EndFunc" & @CRLF)
@@ -50,6 +52,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed(41) Then ;Letter A
+		 FileWrite("log.txt","a")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -63,6 +66,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed(42) Then ;Letter B
+		 FileWrite("log.txt","b")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -76,6 +80,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed(43) Then ;Letter C
+		 FileWrite("log.txt","c")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -89,6 +94,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed(44) Then ;Letter D
+		 FileWrite("log.txt","d")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -102,6 +108,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed(45) Then ;Letter E
+		 FileWrite("log.txt","e")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -115,6 +122,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed(46) Then ;Letter F
+		 FileWrite("log.txt","f")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -128,6 +136,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed(47) Then ;Letter G
+		 FileWrite("log.txt","g")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -141,6 +150,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed(48) Then ;Letter H
+		 FileWrite("log.txt","h")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -154,6 +164,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed(49) Then ;Letter I
+		 FileWrite("log.txt","i")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -167,6 +178,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("4A") Then ;Letter J
+		 FileWrite("log.txt","j")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -180,6 +192,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("4B") Then ;Letter K
+		 FileWrite("log.txt","k")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -193,6 +206,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("4C") Then ;Letter L
+		 FileWrite("log.txt","l")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -206,6 +220,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("4D") Then ;Letter M
+		 FileWrite("log.txt","m")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -219,6 +234,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("4E") Then ;Letter N
+		 FileWrite("log.txt","n")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -232,6 +248,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("4F") Then ;Letter O
+		 FileWrite("log.txt","o")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -245,6 +262,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("50") Then ;Letter P
+		 FileWrite("log.txt","p")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -258,6 +276,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("51") Then ;Letter Q
+		 FileWrite("log.txt","q")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -271,6 +290,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("52") Then ;Letter R
+		 FileWrite("log.txt","r")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -284,6 +304,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("53") Then ;Letter S
+		 FileWrite("log.txt","s")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -297,6 +318,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("54") Then ;Letter T
+		 FileWrite("log.txt","t")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -310,6 +332,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("55") Then ;Letter U
+		 FileWrite("log.txt","u")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -323,6 +346,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("56") Then ;Letter V
+		 FileWrite("log.txt","v")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -336,6 +360,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("57") Then ;Letter W
+		 FileWrite("log.txt","w")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -349,6 +374,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("58") Then ;Letter X
+		 FileWrite("log.txt","x")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -362,6 +388,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("59") Then ;Letter Y
+		 FileWrite("log.txt","y")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -375,6 +402,7 @@ Func main()
 	  EndIf
 
 	  If _IsPressed("5A") Then ;Letter Z
+		 FileWrite("log.txt","z")
 		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
 		 $inTimer = TimerInit()
 		 $initialPos = MouseGetPos()
@@ -387,8 +415,19 @@ Func main()
 		 $outTimer = 0
 	  EndIf
 
-	  ;If _IsPressed("0D") Then ;Enter
+	  If _IsPressed("0D") Then ;Enter
+		 FileWrite("log.txt",@CRLF)
+		 While _IsPressed("0D")
+			Sleep(10)
+		 WEnd
+	  EndIf
 
-	  ;EndIf
+	  If _IsPressed("20") Then ;SpaceBar
+		 FileWrite("log.txt",@CRLF)
+		 While _IsPressed("20")
+			Sleep(10)
+		 WEnd
+	  EndIf
+
    WEnd
 EndFunc

@@ -13,7 +13,14 @@ Func Terminate()
    FileDelete("log.txt")
    Exit 1
 EndFunc
+
 FileWrite("moves.txt", "#include <Misc.au3>" & @CRLF & "#include <Date.au3>" & @CRLF & 'HotKeySet("{ESC}", "Terminate")' & @CRLF & "Func Terminate()" & @CRLF & "Exit 1" & @CRLF & "EndFunc" & @CRLF)
+
+If Not FileExists(@ScriptDir & "\memoryCard") Then
+   DirCreate(@ScriptDir & "\memoryCard")
+   DirCreate(@ScriptDir & "\memoryCard\generatedCode")
+   DirCreate(@ScriptDir & "\memoryCard\logs\")
+EndIf
 
 main()
 
@@ -417,16 +424,30 @@ Func main()
 
 	  If _IsPressed("0D") Then ;Enter
 		 FileWrite("log.txt",@CRLF)
+		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
+		 $inTimer = TimerInit()
+		 $initialPos = MouseGetPos()
 		 While _IsPressed("0D")
 			Sleep(10)
 		 WEnd
+		 $finalPos = MouseGetPos()
+		 $inTimerDif = TimerDiff($inTimer)
+		 FileWrite("moves.txt", 'Send("{ENTER down}")' & @CRLF & "Sleep(" & $inTimerDif & ")" & @CRLF & 'Send("{ENTER up}")' & @CRLF)
+		 $outTimer = 0
 	  EndIf
 
 	  If _IsPressed("20") Then ;SpaceBar
-		 FileWrite("log.txt",@CRLF)
+		 FileWrite("log.txt"," ")
+		 FileWrite("moves.txt", "Sleep(" & TimerDiff($outTimer) & ")" & @CRLF)
+		 $inTimer = TimerInit()
+		 $initialPos = MouseGetPos()
 		 While _IsPressed("20")
 			Sleep(10)
 		 WEnd
+		 $finalPos = MouseGetPos()
+		 $inTimerDif = TimerDiff($inTimer)
+		 FileWrite("moves.txt", 'Send("{SPACE down}")' & @CRLF & "Sleep(" & $inTimerDif & ")" & @CRLF & 'Send("{SPACE up}")' & @CRLF)
+		 $outTimer = 0
 	  EndIf
 
    WEnd

@@ -14,8 +14,10 @@ Func Terminate()
    Exit 1
 EndFunc
 
+;Create the file "moves.txt"
 FileWrite("moves.txt", "#include <Misc.au3>" & @CRLF & "#include <Date.au3>" & @CRLF & 'HotKeySet("{ESC}", "Terminate")' & @CRLF & "Func Terminate()" & @CRLF & "Exit 1" & @CRLF & "EndFunc" & @CRLF)
 
+;Create the directory "memoryCard" if it doesn't exists
 If Not FileExists(@ScriptDir & "\memoryCard") Then
    DirCreate(@ScriptDir & "\memoryCard")
    DirCreate(@ScriptDir & "\memoryCard\generatedCode")
@@ -24,6 +26,7 @@ EndIf
 
 Global $outTimer = 0
 
+;Start the program
 main()
 
 Func main()
@@ -63,7 +66,7 @@ Func register($key, $letter, $mouse)
 EndFunc
 
 Func watchUser()
-send
+
    If $outTimer == 0 Then
 	  $outTimer = TimerInit() ;Count the time that the user is idle
    EndIf

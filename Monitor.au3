@@ -1,6 +1,7 @@
 #include <Misc.au3>
 #include <Date.au3>
 
+;To terminate press alt+ESC
 HotKeySet("!{ESC}", "Terminate")
 
 Func Terminate()
@@ -14,28 +15,31 @@ Func Terminate()
    Exit 1
 EndFunc
 
-;Create the file "moves.txt"
-FileWrite("moves.txt", "#include <Misc.au3>" & @CRLF & "#include <Date.au3>" & @CRLF & 'HotKeySet("{ESC}", "Terminate")' & @CRLF & "Func Terminate()" & @CRLF & "Exit 1" & @CRLF & "EndFunc" & @CRLF)
-
-;Create the directory "memoryCard" if it doesn't exists
-If Not FileExists(@ScriptDir & "\memoryCard") Then
-   DirCreate(@ScriptDir & "\memoryCard")
-   DirCreate(@ScriptDir & "\memoryCard\generatedCode")
-   DirCreate(@ScriptDir & "\memoryCard\logs\")
-EndIf
-
 Global $outTimer = 0
+
+;Prepare de Enviroment
+prepareEnviroment()
 
 ;Start the program
 main()
 
 Func main()
-
    while 1
-
 	  watchUser()
-
    WEnd
+EndFunc
+
+;This function prepares the enviroment
+Func prepareEnviroment()
+   ;Create the file "moves.txt" that contains the code that will be made by the user interaction
+   FileWrite("moves.txt", "#include <Misc.au3>" & @CRLF & "#include <Date.au3>" & @CRLF & 'HotKeySet("{ESC}", "Terminate")' & @CRLF & "Func Terminate()" & @CRLF & "Exit 1" & @CRLF & "EndFunc" & @CRLF)
+
+   ;Create the directory "memoryCard" if it doesn't exists
+   If Not FileExists(@ScriptDir & "\memoryCard") Then
+	  DirCreate(@ScriptDir & "\memoryCard")
+	  DirCreate(@ScriptDir & "\memoryCard\generatedCode")
+	  DirCreate(@ScriptDir & "\memoryCard\logs\")
+   EndIf
 EndFunc
 
 Func register($key, $letter, $mouse)
